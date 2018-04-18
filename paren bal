@@ -1,0 +1,100 @@
+
+You are given a string with alpha-numeric characters and parentheses. Your goal is to return a string with balanced parentheses by removing the fewest characters possible. Note that you cannot add anything to the string.
+
+ 
+
+Examples
+
+() -> ()
+b(a)r) -> b(a)r
+)( -> 
+((((( -> 
+)(())( -> (())
+  
+Note that there can be multiple correct results per input
+
+(()()( -> ()() OR (())
+(())()) -> (()()) OR "(())()
+
+
+
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+    // 'b(a)r)' -> 'b(a)r' OR 'b(ar)'
+    // () -> ()
+    // )( -> ""
+    // (((((( -> ""
+    // (()()( -> ()() OR (())
+    // )(()())() -> ()() OR (())
+    /*
+     * Complete the balance_parens function below.
+     */
+    //  (()
+    //  ())()
+    //  ())())
+    //  stack = [0, (]
+
+    
+    
+    // AD Api factory
+    // input string -> google ad api
+    // super class -> 
+    
+    static String balance_parens(String str) {
+        /*
+         * Write your code here.
+         */
+         
+         Stack<Character> st = new Stack();
+         Array<Character> arr = new CharArray(str);
+         StringBuilder newstr = new StringBuilder();
+        //  indicesSet 
+         
+         for(int i =0 ; i< str.length;i++){
+            if (str[i] == '(') {
+                st.add(i);
+            } else if (str[i] == ')') {
+                if (st.length() == 0) {
+                    st.add(i);
+                } else {
+                    st.pop();
+                }
+            }
+         }
+         
+        // all the parens in the stack are invalid
+        for i in stack:
+            s[i] = '#'
+         
+         // simple logic to do taht
+         
+    }
+
+    public static void main(String[] args) throws IOException {
+    }
+}
+
+
+
+           if( str.charAt(i) != '(' || str.charAt(i) != ')' ){
+                 newstr.append(str.charAt(i));
+             }else{
+                 if( str.charAt(i) == '('){
+                     st.add(')');
+                     newstr.append('(');
+                 }else if(str.charAt(i) == ')' ) {
+                     if(st.peek() ==')'){
+                         st.pop();
+                         newstr.append(')');
+                     }else{
+                         continue;
+                     }
+                     
+                 }
+             }

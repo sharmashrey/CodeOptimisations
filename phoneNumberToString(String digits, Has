@@ -1,0 +1,24 @@
+static void phoneNumberToString(String digits, HashMap<Character, char[]> mapping) {
+            
+        if(digits == null || digits.length() ==0 ){
+            return;
+        }
+        StringBuilder curr = new StringBuilder();
+        combination(curr, digits, 0, mapping);
+        return;
+    }
+    
+    private static void combination(StringBuilder curr, String digits, int pos, HashMap<Character, char[]> mapping){
+        if(pos == digits.length()){
+            System.out.print(curr.toString() + ",");
+            
+            return;
+        }
+        
+        char[] letter = mapping.get(digits.charAt(pos));
+        
+        for(int i = 0 ; i< letter.length;i++){
+            combination(curr.append(letter[i]), digits, pos+1, mapping);
+            curr.deleteCharAt(curr.length() -1);
+        }
+    }

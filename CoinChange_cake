@@ -1,0 +1,25 @@
+class Solution{
+    public static void main(String args[]){
+        int[] denomination = {1, 2, 3};
+        int result = 4;
+        
+        System.out.print(rec(denomination, result));
+    }
+    private static int rec(int [] denomination, int result){
+        int ways[] = new int[result+1];
+       
+        ways[0] =1;
+        
+        for(int coin:denomination)
+        {
+            for(int j = coin; j<= result; j++)
+            {
+                ways[j] += ways[j-coin];
+            }
+        }
+        return ways[result];
+    }
+        
+        
+       
+}
